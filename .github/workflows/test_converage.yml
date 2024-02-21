@@ -1,7 +1,10 @@
 # https://github.com/marketplace/actions/vitest-coverage-report
-name: "Test"
+name: "Test vitest converage report with github workflow"
 on:
+  push:
+    branches: [main, dev]
   pull_request:
+    branches: [main, dev]
 
 jobs:
   test:
@@ -28,3 +31,6 @@ jobs:
         # Only works if you set `reportOnFailure: true` in your vite config as specified above
         if: always()
         uses: davelosert/vitest-coverage-report-action@v2
+        with: "vitest-coverage"
+        json-summary-path: "./coverage/coverage-summary.json"
+        json-final-path: "./coverage/coverage-final.json"
