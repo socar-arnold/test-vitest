@@ -30,5 +30,6 @@ jobs:
         uses: davelosert/vitest-coverage-report-action@v2
         with:
           name: "vitest-coverage"
-          json-summary-path: "../../coverage/coverage-summary.json"
-          json-final-path: "../../coverage/coverage-final.json"
+          working-directory: "./"
+          json-summary-path: "coverage/coverage-summary.json"
+          json-final-path: "coverage/coverage-final.json"
