@@ -1,9 +1,10 @@
 // vite.config.js
 import { defineConfig } from 'vitest/config';
 import reactRefresh from '@vitejs/plugin-react-refresh';
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [reactRefresh()],
+  plugins: [react(),reactRefresh()],
   test: {
     browser: {
       provider :"playwright",
