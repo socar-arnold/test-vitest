@@ -1,13 +1,13 @@
 import React from 'react'
 
-const useCount = () => {
-    const [count, setCount] = React.useState(0);
+const useCount = ({initialCount}:{initialCount: number} = { initialCount : 0}) => {
+    const [count, setCount] = React.useState(initialCount);
 
     const plus = () => setCount((prev)=> prev + 1);
-    const minors = () => setCount((prev)=> prev - 1);
+    const minus = () => setCount((prev)=> prev - 1);
 
   return {
-    count, plus, minors
+    count, plus, minus
   }
 }
 
