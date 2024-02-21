@@ -1,10 +1,7 @@
 # https://github.com/marketplace/actions/vitest-coverage-report
-name: "Test vitest converage report with github workflow"
+name: "Vitest converage report"
 on:
-  push:
-    branches: [main, dev]
   pull_request:
-    branches: [main, dev]
 
 jobs:
   test:
