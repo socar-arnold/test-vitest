@@ -1,5 +1,5 @@
 // vite.config.js
-import { defineConfig } from "vitest/config";
+import { configDefaults, defineConfig } from "vitest/config";
 import reactRefresh from "@vitejs/plugin-react-refresh";
 import react from "@vitejs/plugin-react";
 
@@ -14,6 +14,7 @@ export default defineConfig({
         },
       },
     },
+    exclude: [...configDefaults.exclude, "playwright/*"],
     coverage: {
       provider: "v8",
       reporter: ["text", "json-summary", "json"],
