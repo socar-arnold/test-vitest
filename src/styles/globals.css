@@ -31,3 +31,16 @@ body {
     text-wrap: balance;
   }
 }
+
+.nav {
+  display: flex;
+}
+
+.nav > li {
+  margin-right: 12px;
+}
+
+.title {
+  font-size: 32px;
+  margin: 12px 0px;
+}

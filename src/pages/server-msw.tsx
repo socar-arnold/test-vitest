@@ -13,7 +13,7 @@ const ServerMSW = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <main>
-      <h1>About</h1>
+      <h1>AboutMsw</h1>
 
       {posts.length > 0 &&
         posts.map((post) => (

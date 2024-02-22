@@ -1,18 +1,27 @@
 import { test, expect } from "@playwright/test";
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test.describe("use vitest method in playwright", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("http://localhost:3000");
+  });
+  test("has title", async ({ page }) => {
+    // Expect a title "to contain" a substring.
+    await expect(page.getByRole("heading", { name: "Socar" })).toBeVisible();
+  });
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+  test("go about link", async ({ page }) => {
+    // Click the get started link.
+    await page.getByRole("link", { name: "About" }).click();
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+    // Expects page to have a heading with the name of Installation.
+    await expect(page.getByText("About")).toBeVisible();
+  });
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+  test("go serverMSW link", async ({ page }) => {
+    // Click the get started link.
+    await page.getByRole("link", { name: "MSW" }).click();
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+    // Expects page to have a heading with the name of Installation.
+    await expect(page.getByText("AboutMsw")).toBeVisible();
+  });
 });
