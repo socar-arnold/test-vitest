@@ -22,18 +22,14 @@ export const MOCK_POSTS = [
   },
   {
     userId: 3,
-    id: 6,
-    title: "이제 되냐",
+    id: 1232,
+    title: "되라 얍얍",
     body: "third post body",
   },
 ];
 
 export const handlers = [
-  http.get(
-    "http://cloud-sanghun-dfd.com/posts",
-    ({ request, params, cookies }) => {
-      console.log("???DF?D?DF?DF??SDAF?ADSF?HANDLERS", { request });
-      return HttpResponse.json(MOCK_POSTS, { status: 200 });
-    }
-  ),
+  http.get("http://arnold-socar.com/posts", ({ request, params, cookies }) => {
+    return HttpResponse.json(MOCK_POSTS, { status: 200 });
+  }),
 ];

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useEffect } from "react";
 
 interface Post {
@@ -15,7 +16,7 @@ const About = () => {
 
   const fetchPosts = async () => {
     setIsLoading(true);
-    await fetch("http://cloud-sanghun-dfd.com/posts")
+    await fetch("http://arnold-socar.com/posts")
       .then((res) => res.json())
       .then((posts) => setPosts(posts as Post[]));
 
@@ -29,6 +30,7 @@ const About = () => {
   return (
     <main>
       <h1>About</h1>
+      <Link href="server-msw">Server MSW Test</Link>
       {isLoading && <span aria-label="loading">Loading...</span>}
       {posts.length > 0 &&
         posts.map((post) => (
