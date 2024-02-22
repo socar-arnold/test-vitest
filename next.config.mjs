@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  env: {
+    NEXT_IS_MSW: process.env.NEXT_IS_MSW,
+  },
   experimental: {
     instrumentationHook: true,
   },

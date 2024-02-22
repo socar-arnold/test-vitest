@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("use vitest method in playwright", () => {
+test.describe("basic playwright", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("http://localhost:3000");
   });
