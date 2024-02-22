@@ -1,10 +1,7 @@
 # https://github.com/marketplace/actions/vitest-coverage-report
-name: "Test vitest converage report with github workflow"
+name: "Vitest converage report"
 on:
-  push:
-    branches: [main, dev]
   pull_request:
-    branches: [main, dev]
 
 jobs:
   test:
@@ -25,12 +22,17 @@ jobs:
       - name: "Install Deps"
         run: npm install
       - name: "Start Vitest"
-        run: npx vitest --coverage.enabled true
+        run: npx vitest --coverage.enabled true --coverage.provider=v8 --coverage.reporter=json-summary --coverage.reporter=json
       - name: "Report Coverage"
         # Set if: always() to also generate the report if tests are failing
         # Only works if you set `reportOnFailure: true` in your vite config as specified above
         if: always()
         uses: davelosert/vitest-coverage-report-action@v2
-        with: "vitest-coverage"
-        json-summary-path: "./coverage/coverage-summary.json"
-        json-final-path: "./coverage/coverage-final.json"
+        with:
+          name: "vitest-coverage"
+          working-directory: "./"
+          json-summary-path: "coverage/coverage-summary.json"
+          json-final-path: "coverage/coverage-final.json"
+          file-coverage-mode: all
+
+          # file-coverage-mode: "all",
